@@ -3,13 +3,16 @@
 
 name: Front-End Workflow
 
+permissions:
+  pull-requests: read # allows SonarCloud to decorate PRs with analysis results
+
 on:
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
-  test:
+  Test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -33,3 +36,19 @@ jobs:
     - name: Test
       working-directory: ./front
       run: npm test
+  Analysis:
+    runs-on: ubuntu-latest
+    needs: [Test]
+    steps:
+      - name: Analyzing with SonarCloud
+        uses: SonarSource/sonarcloud-github-action@v2.2.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONARCUBE_KEY }}   # Generate a token on Sonarcloud.io, add it to the secrets of this repo with the name SONAR_TOKEN (Settings > Secrets > Actions > add new repository secret)
+        with:
+          # Additional arguments for the SonarScanner CLI
+          args:
+            # Unique keys of your project and organization. You can find them in SonarCloud > Information (bottom-left menu)
+            # mandatory
+            -Dsonar.projectKey=embedded-mutex-1_bobappfront
+            -Dsonar.organization=embedded-mutex-1
+          projectBaseDir: ./front
