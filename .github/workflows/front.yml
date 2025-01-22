@@ -53,4 +53,4 @@ jobs:
             -Dsonar.organization=embedded-mutex-1
             -Dsonar.sources=./front/src
             -Dsonar.tests=./front/src
-          projectBaseDir: ./front
+          projectBaseDir: .
