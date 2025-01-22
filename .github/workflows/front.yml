@@ -34,7 +34,7 @@ jobs:
       working-directory: ./front
       run: npm run build --if-present
     - name: Test
-      working-directory: ./front
+      working-directory: .
       run: npm test
   Analysis:
     runs-on: ubuntu-latest
@@ -51,4 +51,6 @@ jobs:
             # mandatory
             -Dsonar.projectKey=embedded-mutex-1_bobappfront
             -Dsonar.organization=embedded-mutex-1
+            -Dsonar.sources=./front/src
+            -Dsonar.tests=./front/src
           projectBaseDir: ./front
