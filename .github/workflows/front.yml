@@ -34,7 +34,7 @@ jobs:
       working-directory: ./front
       run: npm run build --if-present
     - name: Test
-      working-directory: .
+      working-directory: ./front
       run: npm test
   Analysis:
     runs-on: ubuntu-latest
