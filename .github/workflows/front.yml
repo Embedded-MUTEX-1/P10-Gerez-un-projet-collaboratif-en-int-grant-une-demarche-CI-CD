@@ -45,12 +45,4 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONARCUBE_KEY }}   # Generate a token on Sonarcloud.io, add it to the secrets of this repo with the name SONAR_TOKEN (Settings > Secrets > Actions > add new repository secret)
         with:
-          # Additional arguments for the SonarScanner CLI
-          args:
-            # Unique keys of your project and organization. You can find them in SonarCloud > Information (bottom-left menu)
-            # mandatory
-            -Dsonar.projectKey=embedded-mutex-1_bobappfront
-            -Dsonar.organization=embedded-mutex-1
-            -Dsonar.sources=./front/src
-            -Dsonar.tests=./front/src
-          projectBaseDir: .
+          projectBaseDir: ./front
