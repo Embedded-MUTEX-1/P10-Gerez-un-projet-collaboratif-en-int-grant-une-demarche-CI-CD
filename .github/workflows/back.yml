@@ -30,4 +30,5 @@ jobs:
       working-directory: ./back
       run: mvn clean install
     - name: Display Test
+      working-directory: ./back
       run: html2text target/site/jacoco/index.html
