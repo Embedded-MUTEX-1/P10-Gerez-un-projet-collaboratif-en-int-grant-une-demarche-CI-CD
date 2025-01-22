@@ -42,6 +42,11 @@
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.8.5</version>
+				<configuration>
+					<includes>
+						<include>com.openclassrooms.bobapp.**</include>
+					</includes>
+				</configuration>
 				<executions>
 					<execution>
 						<goals>
