@@ -24,4 +24,4 @@ jobs:
       run: docker build -t lennyisaac14/bobapp-back .
     - name: Deploy Docker image to Docker Hub
       working-directory: ./back
-      run: docker push lennyisaac14/bobapp-front:back
+      run: docker push lennyisaac14/bobapp-back:latest
