@@ -1,4 +1,4 @@
-name: Docker Image Front CD
+name: Docker Image Back CD
 
 on:
   push:
