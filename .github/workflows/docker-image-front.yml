@@ -19,4 +19,4 @@ jobs:
       run: docker build --progress=plain . --tag front-image:$(date +%s)
     - name: Deploy Docker image to Docker Hub
       working-directory: ./front
-      run: docker push lennyisaac14/repository_test:front-image:$(date +%s)
+      run: docker push lennyisaac14/repository_test:latest
