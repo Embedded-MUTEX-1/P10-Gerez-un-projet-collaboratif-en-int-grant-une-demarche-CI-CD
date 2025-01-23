@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v4
     - name: Build the Docker image for Front-End
       working-directory: ./front
-      run: docker build -t bobapp-front .
+      run: docker build -t lennyisaac14/bobapp-front .
     - name: Deploy Docker image to Docker Hub
       working-directory: ./front
       run: docker push lennyisaac14/bobapp-front:latest
