@@ -33,14 +33,14 @@ jobs:
       working-directory: ./back
       run: html2text target/site/jacoco/index.html
     - name: Build
-        working-directory: ./back
-        run: mvn clean compile
-      - name: Analyzing with SonarCloud
-        uses: SonarSource/sonarcloud-github-action@v2.2.0
-        env:
-          SONAR_TOKEN: ${{ secrets.SONARCUBE_KEY }}   # Generate a token on Sonarcloud.io, add it to the secrets of this repo with the name SONAR_TOKEN (Settings > Secrets > Actions > add new repository secret)
-        with:
-          projectBaseDir: back
+      working-directory: ./back
+      run: mvn clean compile
+    - name: Analyzing with SonarCloud
+      uses: SonarSource/sonarcloud-github-action@v2.2.0
+      env:
+        SONAR_TOKEN: ${{ secrets.SONARCUBE_KEY }}   # Generate a token on Sonarcloud.io, add it to the secrets of this repo with the name SONAR_TOKEN (Settings > Secrets > Actions > add new repository secret)
+      with:
+        projectBaseDir: back
     - name: Login to Docker Hub
       uses: docker/login-action@v2
       with:
