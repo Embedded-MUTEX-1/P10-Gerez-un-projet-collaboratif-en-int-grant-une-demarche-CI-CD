@@ -60,6 +60,13 @@ jobs:
       with:
         name: outputs
         path: |
-          front/coverage/bobapp/**
+          front/coverage/bobapp/base.css
+          front/coverage/bobapp/block-navigation.js
+          front/coverage/bobapp/favicon.png
+          front/coverage/bobapp/index.html
+          front/coverage/bobapp/prettify.css
+          front/coverage/bobapp/prettify.js
+          front/coverage/bobapp/sort-arrow-sprite.png
+          front/coverage/bobapp/sorter.js
           front-image.tar
       
