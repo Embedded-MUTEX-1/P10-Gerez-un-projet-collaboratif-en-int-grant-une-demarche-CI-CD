@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Back-End Workflow
+name: Back-End Workflow CI/CD
 
 on:
   pull_request:
@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  Test:
+  CI_CD:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -52,3 +52,12 @@ jobs:
     - name: Deploy Docker image to Docker Hub
       working-directory: ./back
       run: docker push lennyisaac14/bobapp-back:latest
+    - name: Get docker image
+      run: docker export lennyisaac14/bobapp-back > back-image.tar
+    - name: Save docker image and coverage artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: dist-without-markdown
+        path: |
+          back/target/site/jacoco
+          back-image.tar
