@@ -54,13 +54,15 @@ jobs:
       run: docker push lennyisaac14/bobapp-back:latest
     - name: Get docker image
       run: docker save lennyisaac14/bobapp-back > back-image.tar
-    - name: Save docker image and coverage artifacts
+    - name: Save docker image
       uses: actions/upload-artifact@v4
       with:
-        name: outputs
+        name: image-output
         path: |
-          back/target/site/jacoco/index.html
-          back/target/site/jacoco/jacoco.csv
-          back/target/site/jacoco/jacoco.xml
-          back/target/site/jacoco/jacoco-sessions.html
           back-image.tar
+    - name: Save coverage artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: coverage-output
+        path: |
+          back/target/site/jacoco/
