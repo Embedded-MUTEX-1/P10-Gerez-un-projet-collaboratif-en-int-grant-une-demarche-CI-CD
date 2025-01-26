@@ -53,7 +53,7 @@ jobs:
       working-directory: ./back
       run: docker push lennyisaac14/bobapp-back:latest
     - name: Get docker image
-      run: docker export lennyisaac14/bobapp-back > back-image.tar
+      run: docker export bobapp-back > back-image.tar
     - name: Save docker image and coverage artifacts
       uses: actions/upload-artifact@v4
       with:
