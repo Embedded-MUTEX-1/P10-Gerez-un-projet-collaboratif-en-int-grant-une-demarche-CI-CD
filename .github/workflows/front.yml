@@ -60,6 +60,6 @@ jobs:
       with:
         name: outputs
         path: |
-          front/coverage/bobapp
+          front/coverage/bobapp/**
           front-image.tar
       
