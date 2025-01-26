@@ -57,7 +57,7 @@ jobs:
     - name: Save docker image and coverage artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: dist-without-markdown
+        name: outputs
         path: |
           back/target/site/jacoco
           back-image.tar
