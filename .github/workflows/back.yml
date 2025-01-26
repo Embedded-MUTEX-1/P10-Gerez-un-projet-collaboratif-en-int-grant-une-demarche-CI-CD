@@ -59,5 +59,8 @@ jobs:
       with:
         name: outputs
         path: |
-          back/target/site/jacoco/**
+          back/target/site/jacoco/index.html
+          back/target/site/jacoco/jacoco.csv
+          back/target/site/jacoco/jacoco.xml
+          back/target/site/jacoco/jacoco-sessions.html
           back-image.tar
