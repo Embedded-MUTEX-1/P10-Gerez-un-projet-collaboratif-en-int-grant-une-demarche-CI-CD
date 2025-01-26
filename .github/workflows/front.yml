@@ -54,7 +54,7 @@ jobs:
       working-directory: ./front
       run: docker push lennyisaac14/bobapp-front:latest
     - name: Get docker image
-      run: docker export lennyisaac14/bobapp-front > front-image.tar
+      run: docker save lennyisaac14/bobapp-front > front-image.tar
     - name: Save docker image and coverage artifacts
       uses: actions/upload-artifact@v4
       with:
